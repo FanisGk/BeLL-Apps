@@ -44,7 +44,7 @@ def on_platforms(platforms):
 class BaseCase(unittest.TestCase):
     def setUp(self):
         #fixing couchdb resource leak warning
-        super().setUp()
+        #super().setUp()
         warnings.filterwarnings(action="ignore",
                                  message="unclosed",
                                  category=ResourceWarning)
@@ -58,7 +58,7 @@ class BaseCase(unittest.TestCase):
             self.driver = webdriver.Firefox()
     def tearDown(self):
         #fixing couchdb resource leak warning
-        super().tearDown()
+        #super().tearDown()
         warnings.filterwarnings(action="default",
                                  message="unclosed",
                                  category=ResourceWarning)
