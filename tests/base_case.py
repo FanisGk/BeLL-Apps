@@ -1,6 +1,7 @@
 import os
 import sys
 import unittest
+import warnings
 from selenium import webdriver
 try:
     from sauceclient import SauceClient
