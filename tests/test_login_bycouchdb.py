@@ -24,7 +24,7 @@ class LoginTestCouchDB(BaseCase):
         # login
 		bell.login_test(self.driver, "q", "q")
         
-        # wait for the next page, and fill the configuration only if needed
+        # wait for the next page
 		WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "dashboard")))
 		self.logout_test()
 		
