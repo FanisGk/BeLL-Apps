@@ -42,6 +42,11 @@ def on_platforms(platforms):
 
 class BaseCase(unittest.TestCase):
     def setUp(self):
+        #fixing couchdb resource leak warning
+        super().setUp()
+        warnings.filterwarnings(action="ignore",
+                                 message="unclosed",
+                                 category=ResourceWarning)
         if is_travis():
             self.desired_capabilities['name'] = self.id()
             sauce_url = "http://%s:%s@ondemand.saucelabs.com:80/wd/hub"
@@ -51,6 +56,11 @@ class BaseCase(unittest.TestCase):
         else:
             self.driver = webdriver.Firefox()
     def tearDown(self):
+        #fixing couchdb resource leak warning
+        super().tearDown()
+        warnings.filterwarnings(action="default",
+                                 message="unclosed",
+                                 category=ResourceWarning)
         if is_travis():
             print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
             try:
