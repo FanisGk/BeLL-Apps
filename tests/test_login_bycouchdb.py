@@ -27,6 +27,7 @@ class LoginTestCouchDB(BaseCase):
         # wait for the next page
 		WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "dashboard")))
 		self.logout_test()
+		pyth_couch.delete_member()
 		
 	def logout_test(self):
 		""" NoneType -> NoneType
