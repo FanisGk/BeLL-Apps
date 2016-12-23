@@ -1,6 +1,7 @@
 import pycouchdb
 
 def create_member():
+	""" Create a member in CouchDB with login='q' and password=''. """
 	global db
 	global doc
 	server = pycouchdb.Server("http://nation:oleoleole@localhost:5981/")
@@ -39,6 +40,7 @@ def create_member():
     	)  
 
 def delete_member():
+	""" Delete the last member created from CouchDB. """
 	db.delete(doc)
 
 
