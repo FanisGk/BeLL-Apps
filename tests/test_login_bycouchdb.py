@@ -15,8 +15,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @on_platforms(browsers)
 class LoginTestCouchDB(BaseCase):
-	
-	
+	""" Creates a member, then logins, logouts, and finally deletes the member from CouchDB. """
+	#TODO : Test if logged in
+	#TODO : Test if logged out
+	#TODO : Test if deleted
 	def test_login_bycouchdb(self):
 		pyth_couch.create_member()
 		driver = self.driver
